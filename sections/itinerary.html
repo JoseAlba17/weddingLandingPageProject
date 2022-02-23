@@ -6,11 +6,74 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itineario</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <style>
+        #itinerary-section {
+            background-color: #F8F6F4;
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Itineario</h1>
+    <section id="itinerary-section" class="h-screen bg-cover flex flex-col">
+        <h1 class="text-center font-semibold text-3xl mt-4">ITINERARIO</h1>
+        <div class="mb-20"></div>
+        <div class="grid grid-cols-11 grid-rows-3">
+            <div class="relative place-content-end h-80 col-span-5">
+                <div class=" absolute inset-y-0 right-0 border border-2 bg-white rounded-lg p-4 w-1/2 h-2/3 right-0 top-0">
+                    <h3 class="mb-2 font-semibold">Parroquia de San Francisco de Asís</h3>
+                    <h4 class="mb-2">Jesús Reynoso No. 30B, Centro, Tepatitlán, Jalisco</h4>
+                    <h3 class="mb-2">16:00 HRS</h3>
+                    <button class="bg-yellow-800 p-2 px-4 font text-white mt-4">VER MAPA</button>
+                </div>
+            </div>
+            <div class="w-70 h-80 ">
+                <div class="translate-y-0 translate-x-14 w-16 h-16 border border-2 bg-white rounded-full bg">
+                    <img src="/img/Ceremonia.png" class="">
+                    <div class="w-2 h-64 border border-2 bg-white translate-x-7"></div>
+                </div>
+            </div>
+            <div class="h-80 col-span-5">
+                <h3 class="font-normal text-2xl mt-4">CEREMONIA</h3>
+            </div>
+            <div class="h-80 col-span-5">
+                <h3 class="text-right font-normal text-2xl mt-4">RECEPCIÓN</h3>
+            </div>
+            <div class="w-70 h-80">
+                <div class="translate-y-0 translate-x-14 w-16 h-16 border border-2 bg-white rounded-full bg">
+                    <img src="/img/Recepcion.png" class="">
+                    <div class="w-2 h-64 border border-2 bg-white translate-x-7"></div>
+                </div>
+            </div>
+            <div class="relative place-content-end h-80 col-span-5">
+                <div class=" absolute inset-y-0 left-0 border border-2 bg-white rounded-lg p-4 w-1/2 h-2/3 right-0 top-0">
+                    <h3 class="mb-2 font-semibold">Hacienda Santa Bárbara</h3>
+                    <h4 class="mb-2">Tepatitlán de Morelos, Jalisco</h4>
+                    <h3 class="mb-2">20:00 HRS</h3>
+                    <button class="bg-yellow-800 p-2 px-4 font text-white mt-4">VER MAPA</button>
+                </div>
+            </div>
+            <div class="relative place-content-end h-80 col-span-5">
+                <div class=" absolute inset-y-0 right-0 border border-2 bg-white rounded-lg p-4 w-1/2 h-2/3 right-0 top-0">
+                    <h3 class="mb-2 font-semibold">Hacienda Santa Bárbara</h3>
+                    <h4 class="mb-2">Tepatitlán de Morelos, Jalisco</h4>
+                    <h3 class="mb-2">01:00 HRS</h3>
+                    <button class="bg-yellow-800 p-2 px-4 font text-white mt-4">VER MAPA</button>
+                </div>
+            </div>
+            <div class="w-70 h-80 ">
+                <div class="translate-y-0 translate-x-14 w-16 h-16 border border-2 bg-white rounded-full bg">
+                    <img src="/img/DESVELADOS.png" class="p-3">
+                    <div class="w-2 h-64 border border-2 bg-white translate-x-7"></div>
+                </div>
+            </div>
+            <div class="h-80 col-span-5">
+                <h3 class="font-normal text-2xl mt-4">DESVELADOS</h3>
+            </div>
+        </div>
+
+        </div>
+    </section>
 </body>
 
 </html>
