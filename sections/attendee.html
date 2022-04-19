@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendee</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <style>
+        .attendee-bg {
+            background-color: #F8F6F4;
+        }
+        .secondary-color {
+            background-color: #C8AC94 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container sm:columns-1 md:colums-2 lg:columns-2 xl:columns-2 xl:mt-16 attendee-bg">
+        <div>
+            <img src="/img/image-cecychema3.jpeg">
+        </div>
+        <div class="w-full text-center pl-1 pr-6">
+            <h1 class="text-3xl py-4">CONFIRMA TU ASISTENCIA</h1>
+            <p>Llena nuestro formulario y sé parte de nuestro gran día</p>
+            <form>
+                <div class="input-group mt-6">
+                    <label for="attendee-confirm">¿Asistirás a nuestra Boda?</label>
+                    <div class="w-36 mx-auto py-4">
+                        <input class="-mt-1" type="radio" name="attendee-confirm" value="true">
+                        <span class="ml-1">SI</span>
+                        <input class="ml-2 -mt-1" type="radio" name="attendee-confirm" value="false">
+                        <span class="ml-1">NO</span>
+                    </div>
+                </div>
+                <div class="input-group mt-5">
+                    <label for="attendee-name" class="block">Nombre</label>
+                    <input class="w-full border-0 border-b my-4 bg-transparent text-center focus:outline-none focus:border-gray-200" type="text" placeholder="A quién está dirigida la invitación" name="attendee-name" required>
+                </div>
+                <div class="input-group mt-5">
+                    <label for="attendee-quantity" class="block">¿Cuántos invitados asistirán en total a la boda</label>
+                    <input class="w-full border-0 border-b my-4 bg-transparent focus:outline-none text-center" type="text" placeholder="La cantidad de invitados se muestra en la" name="attendee-quantity" required>
+                </div>
+                <div class="input-group mt-5">
+                    <label for="attendee-phone" class="block">Teléfono</label>
+                    <input class="w-full border-0 border-b mt-4 bg-transparent focus:outline-none text-center" type="text" name="attendee-phone" required>
+                </div>
+                <input class="border my-6 px-6 py-3 secondary-color text-white cursor-pointer" type="submit" value="ENVIAR CONFIRMACION">
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="text-center p-10">
+            <p class="sm:text-md">Copyright 2022 | CECILIA Y JOSE MARIA</p>
+            <p>Made with ❤️✨ by Bárbaros</p>
+        </div>
+    </footer>
+</body>
+</html>
