@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Nos casamos! - Boda de Ceci y Chema</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script src="../js/simplycountdown/simplyCountdown.min.js"></script>
     <style>
         #main-section {
             background-image: url('img/kisshome.jpg');
@@ -30,30 +31,14 @@
     <section>
         <div id="main-section" class="w-full h-screen bg-cover flex flex-auto justify-items-center items-end"></div>
         <div class="mt-20 flex flex-col items-center">
-            <h2 class="sm:text-sm md:text-xl lg:text-2xl font-bold text-center">2 DE OCTUBRE DEL 2022</h2>
-            <div class="mt-4 m-auto w-1/2 flex justify-between items-center">
-                <div class="h-32 text-center">
-                    <div class="md:text-3xl xl:text-6xl mt-4 mb-2">277</div>
-                    <div class="md:text-xl">Días</div>
-                </div>
-                <div class="h-32 text-center">
-                    <div class="md:text-3xl xl:text-6xl mt-4 mb-2">17</div>
-                    <div class="md:text-xl">Horas</div>
-                </div>
-                <div class="h-32 text-center">
-                    <div class="md:text-3xl xl:text-6xl mt-4 mb-2">02</div>
-                    <div class="md:text-xl">Minutos</div>
-                </div>
-                <div class="h-32 text-center">
-                    <div class="md:text-2xl xl:text-6xl mt-4 mb-2">36</div>
-                    <div class="md:text-xl">Segundos</div>
-                </div>
-            </div>
+            <h2 class="sm:text-sm md:text-xl lg:text-2xl font-bold text-center">22 DE OCTUBRE DEL 2022</h2>
+            <div class="mt-4 m-auto w-1/2 flex justify-between items-center simply-countdown"></div>
         </div>
         <div class="w-full text-center">
             <a class="block m-auto mb-4 p-2 w-64 text-sm cursor-pointer hover:text-orange-300">AGREGAR A CALENDARIO</a>
         </div>
     </section>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
