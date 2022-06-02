@@ -23,7 +23,7 @@
         <div class="w-full text-center pl-1 pr-6">
             <h1 class="text-3xl py-4">CONFIRMA TU ASISTENCIA</h1>
             <p>Llena nuestro formulario y sé parte de nuestro gran día</p>
-            <form>
+            <form id="attendee-form">
                 <div class="input-group mt-6">
                     <label for="attendee-confirm">¿Asistirás a nuestra Boda?</label>
                     <div class="w-36 mx-auto py-4">
@@ -38,8 +38,8 @@
                     <input class="w-full border-0 border-b my-4 bg-transparent text-center focus:outline-none focus:border-gray-200" type="text" placeholder="A quién está dirigida la invitación" name="attendee-name" required>
                 </div>
                 <div class="input-group mt-5">
-                    <label for="attendee-quantity" class="block">¿Cuántos invitados asistirán en total a la boda</label>
-                    <input class="w-full border-0 border-b my-4 bg-transparent focus:outline-none text-center" type="text" placeholder="La cantidad de invitados se muestra en la" name="attendee-quantity" required>
+                    <label for="attendee-quantity" class="block">Correo electrónico</label>
+                    <input class="w-full border-0 border-b my-4 bg-transparent focus:outline-none text-center" type="text" placeholder="micorreo@mail.com" name="attendee-email" required>
                 </div>
                 <div class="input-group mt-5">
                     <label for="attendee-phone" class="block">Teléfono</label>
@@ -55,5 +55,27 @@
             <p>Made with ❤️✨ by Bárbaros</p>
         </div>
     </footer>
+    <script>
+        const formElement = document.getElementById('attendee-form')
+        formElement.onsubmit = e => {
+            e.preventDefault()
+            const contactFormData = new FormData(formElement)
+            const formData = Array.from(contactFormData)
+            const data = formData.map(value => {
+                return {
+                    [value[0]]: value[1]
+                }
+            }).reduce((oldValue, newValue) => {
+                return {...oldValue, ...newValue}
+            }, {})
+            console.log(data)
+            fetch('https://rv25pgog80.execute-api.us-east-1.amazonaws.com/test/save-attendee-data', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }).then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.log(error))
+        }
+    </script>
 </body>
 </html>
