@@ -13,12 +13,23 @@
         #main-section {
             background-image: url('img/kisshome.jpg');
         }
+        @keyframes collapsible {
+            0%  {height: 96px;}
+            25%  {height: 192px;}
+            50%  {height: 288px;}
+            100% {height: 384px;}
+        }
+
+        .collapsed {
+            animation-name: collapsible;
+            animation-duration: 75ms;
+        }
     </style>
 </head>
 
 <body>
     <nav class="w-full absolute">
-        <ul class="w-full hidden fixed bg-white lg:mt-0 lg:block lg:flex lg:justify-between lg:items-center lg:h-24 lg:z-10">
+        <ul class="w-full hidden fixed bg-white lg:mt-0 lg:block lg:flex lg:justify-between lg:items-center lg:h-24 lg:z-10" id="collapse-menu">
             <li class="p-4 text-xs"><a href="#us">NOSOTROS</a></li>
             <li class="p-4 text-xs"><a href="#itinerary">ITINERARIO</a></li>
             <li class="p-4 text-xs"><a href="#dress-code">DRESS CODE</a></li>
@@ -30,7 +41,7 @@
         </ul>
         <div class="sm:block md:block fixed w-full h-16 relative lg:hidden">
             <div class="text-right aboslute right-0">
-                <button class="p-2 rounded-full top-1/2 translate-y-1/3 mr-4 bg-white"><span class="iconify w-6 h-6" data-icon="eva:menu-fill"></span></button>
+                <button class="p-2 rounded-full top-1/2 translate-y-1/3 mr-4 bg-white" id="btn-collapse-menu" data-expanded="false"><span class="iconify w-6 h-6" data-icon="eva:menu-fill"></span></button>
             </div>
         </div>
     </nav>

@@ -32,3 +32,13 @@ document.getElementById('btn-add-calendar').onclick = event => {
         calendarMenu.classList.add('hidden')
     event.target.dataset.showCalendar = showCalendar === "false" ? "true" : "false"
 }
+
+document.getElementById('btn-collapse-menu').onclick = event => {
+    const isExpanded = event.target.dataset.expanded
+    const collapseMenu = document.getElementById('collapse-menu')
+    if(isExpanded === "false")
+        collapseMenu.classList.replace('hidden', 'collapsed')
+    else
+        collapseMenu.classList.replace('collapsed', 'hidden')
+    event.target.dataset.expanded = isExpanded === "false" ? "true" : "false"
+}
