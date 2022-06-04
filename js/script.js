@@ -22,3 +22,13 @@ const addClassesToElements = (selector, classes) => {
 addClassesToElements('simply-section', 'h-32 text-center')
 addClassesToElements('simply-amount', 'block md:text-3xl xl:text-6xl mt-4 mb-2')
 addClassesToElements('simply-word', 'md:text-xl')
+
+document.getElementById('btn-add-calendar').onclick = event => {
+    const showCalendar = event.target.dataset.showCalendar
+    const calendarMenu = document.getElementById('calendar-menu')
+    if(showCalendar === "false")
+        calendarMenu.classList.remove('hidden')
+    else
+        calendarMenu.classList.add('hidden')
+    event.target.dataset.showCalendar = showCalendar === "false" ? "true" : "false"
+}
