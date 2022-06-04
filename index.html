@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¡Nos casamos! - Boda de Ceci y Chema</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <script src="../js/simplycountdown/simplyCountdown.min.js"></script>
     <style>
         #main-section {
@@ -35,7 +36,25 @@
             <div class="mt-4 m-auto w-1/2 flex justify-between items-center simply-countdown"></div>
         </div>
         <div class="w-full text-center">
-            <a class="block m-auto mb-4 p-2 w-64 text-sm cursor-pointer hover:text-orange-300">AGREGAR A CALENDARIO</a>
+            <div class="w-64 mx-auto">
+                <button class="block m-auto mb-4 p-2 w-64 text-sm cursor-pointer hover:text-orange-300" id="btn-add-calendar" data-show-calendar="false">AGREGAR A CALENDARIO</button>
+                <div class="border rounded hidden" id="calendar-menu">
+                    <ul class="text-sm sm:text-md md:text-md lg:text-md xl:tex-md text-left">
+                        <li class="p-1 my-4 hover:bg-gray-200 rounded">
+                            <span class="iconify inline mx-2 w-5 h-5 sm:w-6 md:w-6 lg:w-6 xl:w-6 sm:h-6 md:h-6 lg:h-6 xl:h-6" data-icon="logos:google-calendar"></span>
+                            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20221022T210000Z%2F20221023T080000Z&details=CEREMONIA%20RELIGIOSA%0AParroquia%20de%20San%20Francisco%20de%20As%C3%ADs%0A16%3A00%0A%0AHacienda%20Santa%20B%C3%A1rbara%0ATepatitl%C3%A1n%20de%20Morelos%2C%20Jalisco%0A20%3A00%20HRS%20-%2001%3A00%20HRS&location=Parroquia%20de%20San%20Francisco%20de%20As%C3%ADs&text=Boda%20Cecy%20%26%20Chema" class="mx-2">Google Calendar</a>
+                        </li>
+                        <li class="p-1 my-4 hover:bg-gray-200 rounded">
+                            <span class="iconify inline mx-2 w-5 h-5 sm:w-6 md:w-6 lg:w-6 xl:w-6 sm:h-6 md:h-6 lg:h-6 xl:h-6" data-icon="vscode-icons:file-type-outlook"></span>
+                            <a href="https://outlook.live.com/calendar/0/deeplink/compose?allday=false&body=CEREMONIA%20RELIGIOSA%0AParroquia%20de%20San%20Francisco%20de%20As%C3%ADs%0A16%3A00%0A%0AHacienda%20Santa%20B%C3%A1rbara%0ATepatitl%C3%A1n%20de%20Morelos%2C%20Jalisco%0A20%3A00%20HRS%20-%2001%3A00%20HRS&enddt=2022-10-23T08%3A00%3A00%2B00%3A00&location=Parroquia%20de%20San%20Francisco%20de%20As%C3%ADs&path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&startdt=2022-10-22T21%3A00%3A00%2B00%3A00&subject=Boda%20Cecy%20%26%20Chema" class="mx-2">Outlook Calendar</a>
+                        </li>
+                        <li class="p-1 my-4 hover:bg-gray-200 rounded">
+                            <span class="iconify inline mx-2 w-5 h-5 sm:w-6 md:w-6 lg:w-6 xl:w-6 sm:h-6 md:h-6 lg:h-6 xl:h-6" data-icon="logos:apple"></span>
+                            <a href="invite/cecy_chema_wedding.ics" class="mx-2">Apple Calendar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
     <script src="js/script.js"></script>
