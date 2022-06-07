@@ -11,7 +11,22 @@
     <script src="../js/simplycountdown/simplyCountdown.min.js"></script>
     <style>
         #main-section {
-            background-image: url('img/kisshome.jpg');
+            background-image: url('img/kisshome-mobile.jpg');
+        }
+        @media (min-width: 640px) {
+            #main-section {
+                background-image: url('img/kisshome-sm.jpg');
+            }
+        }
+        @media (min-width: 768px) {
+            #main-section {
+                background-image: url('img/kisshome.jpg');
+            }
+        }
+        @media (min-width: 1024px) {
+            #main-section {
+                background-image: url('img/kisshome.jpg');
+            }
         }
         @keyframes collapsible {
             0%  {height: 96px;}
@@ -46,7 +61,11 @@
         </div>
     </nav>
     <section>
-        <div id="main-section" class="w-full h-screen bg-cover flex flex-auto justify-items-center items-end"></div>
+        <div class="hidden sm:block md:block lg:block bg-black w-full h-full opacity-10 absolute"></div>
+        <div id="main-section" class="w-full h-screen bg-cover flex flex-auto justify-center items-end z-10">
+            <img src="img/logo-name.svg" class="hidden sm:block md:block lg:block w-full mx-16">
+            <img src="img/logo.svg" class="block my-16 sm:hidden md:hiden lg:hidden xl:hidden bg-white rounded-full">
+        </div>
         <div class="mt-20 flex flex-col items-center">
             <h2 class="mb-4 sm:text-sm md:text-xl lg:text-2xl font-bold text-center">22 DE OCTUBRE DEL 2022</h2>
             <div class="mt-4 px-10 md:p-0 lg:p-0 lg:m-auto w-full md:w-1/2 lg:w-1/2 flex justify-between items-center simply-countdown"></div>
