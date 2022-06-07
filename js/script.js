@@ -20,8 +20,8 @@ const addClassesToElements = (selector, classes) => {
 }
 
 addClassesToElements('simply-section', 'h-32 text-center')
-addClassesToElements('simply-amount', 'block md:text-3xl xl:text-6xl mt-4 mb-2')
-addClassesToElements('simply-word', 'md:text-xl')
+addClassesToElements('simply-amount', 'block text-3xl sm:tex-6xl md:text-6xl lg:text-6xl xl:text-6xl mt-4 mb-2')
+addClassesToElements('simply-word', 'text-md sm:text-md md:text-xl lg:text-xl xl:text-xl')
 
 document.getElementById('btn-add-calendar').onclick = event => {
     const showCalendar = event.target.dataset.showCalendar
