@@ -42,3 +42,17 @@ document.getElementById('btn-collapse-menu').onclick = event => {
         collapseMenu.classList.replace('collapsed', 'hidden')
     event.target.dataset.expanded = isExpanded === "false" ? "true" : "false"
 }
+
+function setupEventItemMenuClick() {
+    const collapseMenu = document.getElementById('collapse-menu')
+    const itemsMenu = collapseMenu.querySelectorAll('a')
+    const handleItemClick = (event) => {
+        console.log('click')
+        collapseMenu.classList.replace('collapsed', 'hidden')
+    }
+    itemsMenu.forEach(item => {
+        item.onclick = handleItemClick
+    })
+}
+
+setupEventItemMenuClick()
