@@ -11,49 +11,80 @@
             background-color: #F8F6F4;
         }
         .secondary-color {
-            background-color: #C8AC94 !important;
+            background-color: #1F483A !important;
+        }
+        #attendee-form > div > label:after {
+            content: "*";
+            display: inline-block;
+            color: #C8AC94;
+        }
+        #attendee-form > div > input[type="text"]::placeholder {
+            color: #9DA49C;
         }
     </style>
 </head>
 <body>
-    <div class="container sm:columns-1 md:colums-2 lg:columns-2 xl:columns-2 xl:mt-16 attendee-bg">
+    <div class="w-full columns-1 sm:columns-2 md:columns-2 lg:columns-2 xl:columns-2 xl:mt-16 attendee-bg">
         <div>
-            <img src="/img/image-cecychema3.jpeg">
+            <img class="hidden sm:block md:block lg:block xl:block" src="/img/image-cecychema.jpg">
+            <img class="block sm:hidden md:hidden lg:hidden xl:hidden" src="/img/image-cecychema-mobile.jpg">
         </div>
-        <div class="w-full text-center pl-1 pr-6">
-            <h1 class="text-3xl py-4">CONFIRMA TU ASISTENCIA</h1>
-            <p>Llena nuestro formulario y sé parte de nuestro gran día</p>
-            <form>
+        <div class="w-full text-lg text-center px-6 sm:px-8 md:px-8 lg:px-8 xl:px-8">
+            <h1 class="text-3xl mt-2 py-4 text-[#1F483A]">CONFIRMA TU ASISTENCIA</h1>
+            <p class="text-[#1F483A]">Llena nuestro formulario y sé parte de nuestro gran día</p>
+            <form id="attendee-form">
                 <div class="input-group mt-6">
-                    <label for="attendee-confirm">¿Asistirás a nuestra Boda?</label>
+                    <label for="attendee-confirm" class="text-[#1F483A]">¿Asistirás a nuestra Boda?</label>
                     <div class="w-36 mx-auto py-4">
                         <input class="-mt-1" type="radio" name="attendee-confirm" value="true">
-                        <span class="ml-1">SI</span>
+                        <span class="ml-1 text-[#1F483A]">SI</span>
                         <input class="ml-2 -mt-1" type="radio" name="attendee-confirm" value="false">
-                        <span class="ml-1">NO</span>
+                        <span class="ml-1 text-[#1F483A]">NO</span>
                     </div>
                 </div>
                 <div class="input-group mt-5">
-                    <label for="attendee-name" class="block">Nombre</label>
+                    <label for="attendee-name" class="block text-[#1F483A]">Nombre</label>
                     <input class="w-full border-0 border-b my-4 bg-transparent text-center focus:outline-none focus:border-gray-200" type="text" placeholder="A quién está dirigida la invitación" name="attendee-name" required>
                 </div>
                 <div class="input-group mt-5">
-                    <label for="attendee-quantity" class="block">¿Cuántos invitados asistirán en total a la boda</label>
-                    <input class="w-full border-0 border-b my-4 bg-transparent focus:outline-none text-center" type="text" placeholder="La cantidad de invitados se muestra en la" name="attendee-quantity" required>
+                    <label for="attendee-quantity" class="block text-[#1F483A]">Correo electrónico</label>
+                    <input class="w-full border-0 border-b my-4 bg-transparent focus:outline-none text-center" type="text" placeholder="micorreo@mail.com" name="attendee-email" required>
                 </div>
                 <div class="input-group mt-5">
-                    <label for="attendee-phone" class="block">Teléfono</label>
-                    <input class="w-full border-0 border-b mt-4 bg-transparent focus:outline-none text-center" type="text" name="attendee-phone" required>
+                    <label for="attendee-phone" class="block text-[#1F483A]">Teléfono</label>
+                    <input class="w-full border-0 border-b mt-4 bg-transparent focus:outline-none text-center" type="text" name="attendee-phone" placeholder="3389392121" required>
                 </div>
-                <input class="border my-6 px-6 py-3 secondary-color text-white cursor-pointer" type="submit" value="ENVIAR CONFIRMACION">
+                <input class="border my-6 px-6 py-3 secondary-color text-white cursor-pointer" type="submit" value="ENVIAR CONFIRMACIÓN">
             </form>
         </div>
     </div>
     <footer>
         <div class="text-center p-10">
-            <p class="sm:text-md">Copyright 2022 | CECILIA Y JOSE MARIA</p>
-            <p>Made with ❤️✨ by Bárbaros</p>
+            <p class="sm:text-md text-[#9A7715]">Copyright 2022 | CECILIA Y JOSE MARIA</p>
+            <p class="text-[#9A7715]">Made with ❤️✨ by Bárbaros</p>
         </div>
     </footer>
+    <script>
+        const formElement = document.getElementById('attendee-form')
+        formElement.onsubmit = e => {
+            e.preventDefault()
+            const contactFormData = new FormData(formElement)
+            const formData = Array.from(contactFormData)
+            const data = formData.map(value => {
+                return {
+                    [value[0]]: value[1]
+                }
+            }).reduce((oldValue, newValue) => {
+                return {...oldValue, ...newValue}
+            }, {})
+            console.log(data)
+            fetch('https://rv25pgog80.execute-api.us-east-1.amazonaws.com/test/save-attendee-data', {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }).then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.log(error))
+        }
+    </script>
 </body>
 </html>
