@@ -1,0 +1,106 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Cardo&display=swap');*/
+
+@font-face {
+    font-family: 'Cardo';
+    src: url('../assets/fonts/Cardo-Bold.ttf');
+    src: url('../assets/fonts/Cardo-Italic.ttf');
+    src: url('../assets/fonts/Cardo-Regular.ttf');
+}
+
+* {
+    font-family: 'Cardo', serif;
+}
+
+#main-section {
+    background-image: url('../img/kisshome-mobile.jpg');
+}
+
+#our-memories-section {
+    background-image: url('../img/our-memories-mobile.jpg');
+}
+
+@media (min-width: 640px) {
+    #main-section {
+        background-image: url('../img/kisshome-sm.jpg');
+    }
+
+    #our-memories-section {
+        background-image: url('../img/our-memories.jpg');
+    }
+}
+
+@media (min-width: 768px) {
+    #main-section {
+        background-image: url('../img/kisshome.jpg');
+    }
+
+    #our-memories-section {
+        background-image: url('../img/our-memories.jpg');
+    }
+}
+
+@media (min-width: 1024px) {
+    #main-section {
+        background-image: url('../img/kisshome.jpg');
+    }
+
+    #our-memories-section {
+        background-image: url('../img/our-memories.jpg');
+    }
+}
+
+@media (min-width: 1280px) {
+    #our-memories-section {
+        background-image: url('../img/our-memories.jpg');
+    }
+}
+
+@keyframes collapsible {
+    0%  {height: 96px;}
+    25%  {height: 192px;}
+    50%  {height: 288px;}
+    100% {height: 384px;}
+}
+
+.collapsed {
+    animation-name: collapsible;
+    animation-duration: 75ms;
+}
+
+#itinerary-section {
+    background-color: #F8F6F4;
+}
+
+#dresscode-section {
+    background-image: url('/img/dress-code_background_lq.jpg');
+}
+
+#gift-table-section {
+    background-color: #C8AC94;
+}
+
+.secondary-color {
+    background-color: #C8AC94;
+}
+
+#health-section {
+    background-color: #FFFFFF;
+}
+
+.attendee-bg {
+    background-color: #F8F6F4;
+}
+
+.secondary-color-1 {
+    background-color: #1F483A !important;
+}
+
+#attendee-form > div > label:after {
+    content: "*";
+    display: inline-block;
+    color: #C8AC94;
+}
+
+#attendee-form > div > input[type="text"]::placeholder {
+    color: #9DA49C;
+}
