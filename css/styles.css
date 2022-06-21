@@ -2,9 +2,9 @@
 
 @font-face {
     font-family: 'Cardo';
-    src: url('../assets/fonts/Cardo-Bold.ttf');
-    src: url('../assets/fonts/Cardo-Italic.ttf');
-    src: url('../assets/fonts/Cardo-Regular.ttf');
+    src: url('fonts/Cardo-Bold.ttf');
+    src: url('fonts/Cardo-Italic.ttf');
+    src: url('fonts/Cardo-Regular.ttf');
 }
 
 * {
@@ -72,7 +72,7 @@
 }
 
 #dresscode-section {
-    background-image: url('/img/dress-code_background_lq.jpg');
+    background-image: url('../img/dress-code_background_lq.jpg');
 }
 
 #gift-table-section {
