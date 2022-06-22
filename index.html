@@ -365,26 +365,29 @@
                 <div class="input-group mt-6">
                     <label for="attendee-confirm" class="text-[#1F483A]">¿Asistirás a nuestra Boda?</label>
                     <div class="w-36 mx-auto py-4">
-                        <input class="-mt-1" type="radio" name="is_confirm" value="true">
+                        <input class="-mt-1" type="radio" name="is_confirm" id="attendee-confirm-true" value="true">
                         <span class="ml-1 text-[#1F483A]">SI</span>
-                        <input class="ml-2 -mt-1" type="radio" name="is_confirm" value="false">
+                        <input class="ml-2 -mt-1" type="radio" name="is_confirm" id="attendee-confirm-false" value="false">
                         <span class="ml-1 text-[#1F483A]">NO</span>
                     </div>
                 </div>
                 <div class="input-group mt-5">
                     <label for="attendee-name" class="block text-[#1F483A]">Nombre</label>
-                    <input class="w-full border-0 border-b my-4 bg-transparent text-center focus:outline-none focus:border-gray-200" type="text" placeholder="A quién está dirigida la invitación" name="name" required>
+                    <input class="w-full border-0 border-b my-4 bg-transparent text-center focus:outline-none focus:border-gray-200" type="text" placeholder="A quién está dirigida la invitación" name="name" id="attendee-name" required>
                 </div>
                 <div class="input-group mt-5">
                     <label for="attendee-quantity" class="block text-[#1F483A]">Correo electrónico</label>
-                    <input class="w-full border-0 border-b my-4 bg-transparent focus:outline-none text-center" type="text" placeholder="micorreo@mail.com" name="email" required>
+                    <input class="w-full border-0 border-b my-4 bg-transparent focus:outline-none text-center" type="text" placeholder="micorreo@mail.com" name="email" id="attendee-email" required>
                 </div>
                 <div class="input-group mt-5">
                     <label for="attendee-phone" class="block text-[#1F483A]">Teléfono</label>
-                    <input class="w-full border-0 border-b mt-4 bg-transparent focus:outline-none text-center" type="text" name="phone" placeholder="3389392121" required>
+                    <input class="w-full border-0 border-b mt-4 bg-transparent focus:outline-none text-center" type="text" placeholder="3389392121" name="phone"  id="attendee-phone" required>
                 </div>
                 <input class="border my-6 px-6 py-3 secondary-color-1 text-white cursor-pointer text-md" type="submit" value="ENVIAR CONFIRMACIÓN">
             </form>
+            <div id="attendee-alert" class="w-full hidden h-10 mt-2 mb-8">
+                Tu confirmación ha sido recibida. Gracias por acompañarnos en este día
+            </div>
         </div>
     </div>
 </section>
@@ -408,6 +411,28 @@
       </script>
       <script>
         const formElement = document.getElementById('attendee-form')
+
+        const clearFields = () => {
+            document.getElementById('attendee-confirm-true').checked = false
+            document.getElementById('attendee-confirm-false').checked = false
+            document.getElementById('attendee-name').value = ''
+            document.getElementById('attendee-email').value = ''
+            document.getElementById('attendee-phone').value = ''
+        }
+
+        const showAlert = (message, error) => {
+            const attendeeAlert = document.getElementById('attendee-alert')
+            if(error) {
+                console.log(message)
+                attendeeAlert.innerText = 'Ocurrió un problema. Intenta más tarde 👻'
+            }
+            attendeeAlert.classList.remove('hidden')
+            setTimeout(event => {
+                attendeeAlert.classList.add('hidden')
+                clearFields()
+            }, 3000)
+        }
+
         formElement.onsubmit = e => {
             e.preventDefault()
             const contactFormData = new FormData(formElement)
@@ -419,17 +444,18 @@
             }).reduce((oldValue, newValue) => {
                 return {...oldValue, ...newValue}
             }, {})
-            console.log(data)
-            data.is_confirm = data.is_confirm === "true"
-            fetch('https://rv25pgog80.execute-api.us-east-1.amazonaws.com/beta/attendees-1', {
+            fetch('https://rv25pgog80.execute-api.us-east-1.amazonaws.com/test/save-attendee-data', {
                 method: 'POST',
-                body: JSON.stringify(data),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                body: JSON.stringify(data)
             }).then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.log(error))
+            .then(data => {
+                console.log(data)
+                showAlert('success', false)
+            })
+            .catch(error => {
+                console.log(error)
+                showAlert(error, false)
+            })
         }
       </script>
     </body>
