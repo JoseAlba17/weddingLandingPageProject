@@ -82,6 +82,7 @@
             const attendeeAlert = document.getElementById('attendee-alert')
             if(error) {
                 console.log(message)
+                attendeeAlert.classList.add('text-red-500')
                 attendeeAlert.innerText = 'Ocurrió un problema. Intenta más tarde 👻'
             }
             attendeeAlert.classList.remove('hidden')
