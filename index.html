@@ -377,7 +377,7 @@
                 </div>
                 <div class="input-group mt-5">
                     <label for="attendee-quantity" class="block text-[#1F483A]">Correo electrónico</label>
-                    <input class="w-full border-0 border-b my-4 bg-transparent focus:outline-none text-center" type="text" placeholder="micorreo@mail.com" name="email" id="attendee-email" required>
+                    <input class="w-full border-0 border-b my-4 bg-transparent focus:outline-none text-center" type="text" placeholder="micorreo@mail.com" name="email" id="attendee-email">
                 </div>
                 <div class="input-group mt-5">
                     <label for="attendee-phone" class="block text-[#1F483A]">Teléfono</label>
@@ -455,13 +455,10 @@
             }).then(response => {
                 if(response.ok) {
                     return response.json()
-                } else {
-                    console.log(response.json())
-                    showAlert('error', true)
                 }
+                return Promise.reject(response)
             })
             .then(data => {
-                console.log(data)
                 showAlert('success', false)
             })
             .catch(error => {
