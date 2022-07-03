@@ -418,6 +418,7 @@
             document.getElementById('attendee-name').value = ''
             document.getElementById('attendee-email').value = ''
             document.getElementById('attendee-phone').value = ''
+            document.getElementById('attendee-alert').innerText = ''
         }
 
         const showAlert = (message, error) => {
@@ -426,7 +427,8 @@
                 console.log(message)
                 attendeeAlert.classList.add('text-red-500')
                 attendeeAlert.innerText = 'Ocurrió un problema. Intenta más tarde 👻'
-            }
+            } else
+                document.getElementById('attendee-alert').innerText = 'Tu confirmación ha sido recibida. Gracias por acompañarnos en este día'
             attendeeAlert.classList.remove('hidden')
             setTimeout(event => {
                 attendeeAlert.classList.add('hidden', 'text-red-500')
